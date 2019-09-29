@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * @file
+ *  Common Object Oriented Library module
+ *
+ * This module enhances the Drupal DX through classes and helpers
+ */
+
+use \Drupal\cool\Loader;
+
+include_once 'cool.blocks.inc';
+include_once 'cool.dynamic-blocks.inc';
+include_once 'cool.entities.inc';
+include_once 'cool.forms.inc';
+include_once 'cool.menu_routes.inc';
+
+/**
+ * Implements hook_modules_installed().
+ */
+function cool_modules_enabled($modules) {
+
+  $classes = \Drupal\cool\Loader::mapImplementationsAvailable('Schema', '\Drupal\cool\SchemaInterface');
+  foreach ($classes as $class) {
+    cool_process_schema_intance($class);
+  }
+
+  if (module_exists('eck')) {
+    $classes = Loader::mapImplementationsAvailable('ModelEntity', '\Drupal\cool\ModelEntityInterface');
+
+    foreach ($modules as $module_name) {
+      foreach ($classes as $class_name) {
+        if (strpos($class_name, $module_name) !== FALSE) {
+          cool_entity_model_create($class_name);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * @deprecated This will be removed(together with cool_modules_enabled() and
+ * cool_modules_disabled() and ) on final 2.0 release, because it's not that
+ * useful
+ */
+function cool_entity_model_create($class_name, $loadFiles = FALSE) {
+  if (module_exists('eck')) {
+    if ($loadFiles) {
+      $classes = Loader::mapImplementationsAvailable('ModelEntity', '\Drupal\cool\ModelEntityInterface');
+    }
+
+    $ModelEntity = new $class_name();
+    $entity_type = EntityType::loadByName($ModelEntity->getEntityTypeName());
+    if (!$entity_type) {
+      $entity_type = new EntityType();
+      $entity_type->name = $ModelEntity->getEntityTypeName();
+      $entity_type->label = $ModelEntity->getEntityTypeLabel();
+      foreach ($ModelEntity->getEntityTypeProperties() as $property_field) {
+        $behavior = $property_field['behaviour'] ? $property_field['behaviour'] : NULL;
+        $entity_type->addProperty(
+          $property_field['name'],
+          $property_field['label'],
+          $property_field['type'],
+          $behavior
+        );
+      }
+      $entity_type->save();
+
+      $bundle = new Bundle();
+      $bundle->entity_type = $entity_type->name;
+      $bundle->name = $ModelEntity->getEntityTypeName();
+      $bundle->label = $ModelEntity->getEntityTypeLabel();
+      $bundle->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_modules_disabled().
+ */
+function cool_modules_disabled($modules) {
+  if (module_exists('eck')) {
+    Loader::includeLibClassFilesWithPattern($modules, 'ModelEntity');
+    foreach ($modules as $module_name) {
+      $classes = Loader::mapImplementationsAvailable('ModelEntity', '\Drupal\cool\ModelEntityInterface');
+
+      foreach ($classes as $class_name) {
+        if (strpos($class_name, $module_name) !== FALSE) {
+          $ModelEntity = new $class_name();
+          $entity_type = EntityType::loadByName($ModelEntity->getEntityTypeName());
+          if ($entity_type) {
+            $entity_type->delete();
+          }
+        }
+      }
+    }
+  }
+}
+
+function cool_process_schema_intance($class_name) {
+  $CoolClass = new $class_name();
+  if (!db_table_exists($CoolClass->getTableName())) {
+    $schema = drupal_get_schema_unprocessed('cool', $CoolClass->getTableName());
+    db_create_table($CoolClass->getTableName(), $schema);
+  }
+}

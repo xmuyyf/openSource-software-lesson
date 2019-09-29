@@ -1,0 +1,8 @@
+name = cea00 theme
+
+; Information added by drupal.org packaging script on 2011-12-06
+version = "7.x-1.0"
+core = "7.x"
+project = "1362854"
+datestamp = "1323198037"
+

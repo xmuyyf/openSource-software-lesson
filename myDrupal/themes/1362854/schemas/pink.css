@@ -1,0 +1,17 @@
+#supra_bar 				{background: #000000 !important;}
+#supra_bar #main-menu a {color:#ffffff !important;}
+#supra_logo 			{background: #ff4488 !important;}
+#supra_logo a 			{color: #ffffff !important;}
+
+.sidebar-first  #main {border-left: 1px dotted #ff4488 !important;}
+.sidebar-second #main {border-right: 1px dotted #ff4488 !important;}
+.two-sidebars #main   {border-right: 1px dotted #ff4488 !important;
+					   border-left: 1px dotted #ff4488 !important;}
+
+article 				{border-bottom: 1px dotted #ff4488 !important;}
+
+a 						{color: #ff4488 !important; }
+
+.sidebar a 				{color: #ff4488 !important; }
+
+body					{background: #ffddee !important}

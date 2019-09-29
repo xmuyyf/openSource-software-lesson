@@ -1,0 +1,10 @@
+name = COOL Examples
+description = Example implementations for COOL module
+core = 7.x
+php = 5.3
+dependencies[] = cool
+; Information added by Drupal.org packaging script on 2018-04-04
+version = "7.x-2.0-alpha2"
+core = "7.x"
+project = "cool"
+datestamp = "1522845487"

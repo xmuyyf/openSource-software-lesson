@@ -1,0 +1,11 @@
+name = Common Object Oriented Library
+description = Classes and helpers to serve as a base for Minka suite of modules
+core = 7.x
+php = 5.3
+dependencies[] = xautoload (5.x)
+
+; Information added by Drupal.org packaging script on 2018-04-04
+version = "7.x-2.0-alpha2"
+core = "7.x"
+project = "cool"
+datestamp = "1522845487"

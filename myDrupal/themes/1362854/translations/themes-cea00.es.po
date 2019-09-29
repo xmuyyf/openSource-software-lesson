@@ -1,0 +1,59 @@
+# Spanish translation of cea00 theme (7.0)
+# Copyright (c) 2011 by Carlos Espino
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal core (7.9)\n"
+"POT-Creation-Date: 2011-10-30 20:36+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Published by !username on !datetime"
+msgstr "Publicado por !username el !datetime"
+
+
+
+msgid "Schema"
+msgstr "Esquema de color"
+
+msgid "Gray"
+msgstr "Gris"
+
+msgid "Red"
+msgstr "Rojo"
+
+msgid "Blue"
+msgstr "Azul"
+
+msgid "Orange"
+msgstr "Naranja"
+
+msgid "Pink"
+msgstr "Rosa"
+
+msgid "Maroon"
+msgstr "Marrón"
+
+msgid "Forest"
+msgstr "Bosque"
+
+msgid "Graphite"
+msgstr "Grafito"
+
+msgid "Select the color schema."
+msgstr "Selecionar el esquema de color"
+
+msgid "Select the combo menu in the top bar."
+msgstr "Seleccionar el menú que aparecerá en la barra superior"
+
+msgid "Top margin"
+msgstr "Margen superior"
+
+msgid "Select the top margin value in pixels."
+msgstr "Seleccionar el valor del margen superior en pixels"
+

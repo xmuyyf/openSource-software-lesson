@@ -1,0 +1,65 @@
+/* Drupal 7 cea00 - Created by Carlos Espino
+------------------------------------------------
+
+------------------------------------------------*/
+
+#container {margin-top: 5px;}
+
+#supra_bar {margin-top: 0px; background: #000000;height: 34px;}
+#supra_bar #main-menu li {display: inline;margin-right: 12px;}
+#supra_bar  a {color:#ffffff !important; font-size: 14px !important;}
+
+#supra_logo {margin-top: 0px; background: #d9d9d9 ;}
+#supra_logo h2 {color:#ffffff; font-variant:small-caps;}
+#header {width: 940px; margin:auto; padding-top: 10px;}
+
+
+.sidebar-first  #main {border-left: 1px dotted #d9d9d9; padding: 8px !important; }
+.sidebar-second #main {border-right: 1px dotted #d9d9d9; padding-right: 8px !important; }
+.two-sidebars #main {border-right: 1px dotted #d9d9d9; padding-right: 8px !important; border-left: 1px dotted #d9d9d9; padding: 8px !important;}
+
+.field-name-field-image img {float: left; margin-right: 10px;}
+.submitted {font-style:italic; font-size: 0.75em }
+article header {margin-bottom: 5px;}
+article footer {clear:both; border:0px solid red; text-align: right;}
+article {border-bottom: 1px dotted #d9d9d9; margin-bottom: 55px !important;}
+article footer * {text-transform:uppercase; font-size: 12px !important; line-height: 12px !important;}
+
+#admin-menu * {color:#ffffff !important;}
+
+/* Combo menu  */
+#mini_pic {float:right;}
+#mini_pic img { height:28px; width:auto;margin-top: 0px;vertical-align:text-top }
+
+#supra_bar_combo_menu {
+	float:right;
+	position:relative;
+	right:0px;	
+}
+
+#supra_bar_combo_menu select {
+	 float:left;
+	 background-image:url('images/down_arrow.png');
+	 background-color:transparent;
+	 background-repeat:no-repeat;
+	 background-position:right top;
+	 color:transparent;
+}
+
+#supra_bar_combo_menu option {
+	 background:#000000;
+	 color:#ffffff;
+}
+
+#supra_bar_home_link {
+	float:left;
+	position:absolute;
+	left:14px;
+	background:#000000;
+}
+#supra_bar_home_link a {
+	color:#ffffff !important;
+	font-size: 14px;
+}
+
+
